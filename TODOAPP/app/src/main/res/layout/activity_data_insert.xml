@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="699dp"
+        android:background="#AFD3E2">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/add_task"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/title"
+            android:layout_width="294dp"
+            android:layout_height="48dp"
+            android:ems="10"
+            android:hint="Enter the title"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <EditText
+            android:id="@+id/editTextDate"
+            android:layout_width="293dp"
+            android:layout_height="45dp"
+            android:focusable="false"
+            android:hint="Select Date"
+            android:inputType="none"
+            android:minHeight="48dp"
+            android:onClick="showDatePickerDialog"
+            app:layout_constraintEnd_toEndOf="@+id/title"
+            app:layout_constraintStart_toStartOf="@+id/title"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <TextView
+            android:id="@+id/selectTime"
+            android:layout_width="212dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="12dp"
+            android:clickable="true"
+            android:onClick="showTimePickerDialog"
+            android:text="Click to select time"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/disp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/disp"
+            app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+
+        <EditText
+            android:id="@+id/disp"
+            android:layout_width="288dp"
+            android:layout_height="41dp"
+            android:ems="10"
+            android:hint="Enter the note"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="@+id/editTextDate"
+            app:layout_constraintStart_toStartOf="@+id/editTextDate"
+            app:layout_constraintTop_toBottomOf="@+id/selectTime" />
+
+        <CheckBox
+            android:id="@+id/completeChecbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:text="Completed"
+            app:layout_constraintEnd_toEndOf="@+id/selectTime"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/disp" />
+
+        <Button
+            android:id="@+id/add"
+            android:layout_width="290dp"
+            android:layout_height="55dp"
+            android:background="#19A7CE"
+            android:text="Add Task"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/selectTime"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="@+id/completeChecbox"
+            app:layout_constraintTop_toBottomOf="@+id/completeChecbox"
+            app:layout_constraintVertical_bias="0.283" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+

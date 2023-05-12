@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/addCategory"
+        android:title="Add New Category" />
+    <item
+        android:id="@+id/deleteTask"
+        android:title="Delete All Tasks" />
+
+    <item
+        android:id="@+id/menuLogout"
+        android:icon="@drawable/logout"
+        android:title="Logout" />
+
+
+</menu>

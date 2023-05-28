@@ -185,14 +185,13 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.addCategory:
-                Intent intent = new Intent(MainActivity.this, Login.class);
-                startActivity(intent);
+
                 return true;
 
             case R.id.deleteTask:
-
-
-            return true;
+                todoViewModel.deleteAllTodo();
+                Toast.makeText(this, "All Deleted Successfully", Toast.LENGTH_SHORT).show();
+                return true;
             case R.id.menuLogout:
                 SharedPreferences sharedPreferences =  getSharedPreferences("login", MODE_PRIVATE);
                 sharedPreferences.edit().clear().commit();

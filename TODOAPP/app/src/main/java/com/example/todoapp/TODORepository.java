@@ -9,7 +9,8 @@ import java.util.List;
 
 public class TODORepository {
 
-    private TodoDao todoDao;
+    public static TodoDao todoDao;
+    private UserDao userDao;
     private LiveData<List<TODO>> todoList;
 
     public TODORepository(Application application)
@@ -25,9 +26,14 @@ public class TODORepository {
         new DeleteTask(todoDao).execute(todo);
     }
 
+    public void deleteAllData(){
+        new DeleteAllTask().execute();
+    }
+
     public LiveData<List<TODO>> getTodoList() {
         return todoList;
     }
+
 
     private static class InsertTask extends AsyncTask<TODO,Void,Void>{
 
@@ -60,6 +66,18 @@ public class TODORepository {
             todoDao.delete(todos[0]);
 
             return null;
+        }
+    }
+    private static class DeleteAllTask extends AsyncTask<Void,Void,Void>{
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            if (TODORepository.todoDao != null) {
+                TODORepository.todoDao.deleteAllTodo();
+
+            }
+            return null;
+
         }
     }
 

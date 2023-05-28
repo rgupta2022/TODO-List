@@ -1,15 +1,19 @@
 package com.example.todoapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Register extends AppCompatActivity {
 
@@ -19,12 +23,16 @@ public class Register extends AppCompatActivity {
     TextView mloginBtn;
     ProgressBar progressBar;
 
+    private RegisterViewModel registerViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
 
+        registerViewModel = new ViewModelProvider(this,(ViewModelProvider.Factory)ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication()))
+                .get(RegisterViewModel.class);
         mFullName = findViewById(R.id.fullname);
         mEmail = findViewById(R.id.email);
         mPassword = findViewById(R.id.password);
@@ -66,6 +74,15 @@ public class Register extends AppCompatActivity {
                 }
 
                 progressBar.setVisibility(View.VISIBLE);
+
+                User user = new User(fullName, email, password, phone);
+                registerViewModel.saveRegisteredUser(user);
+
+                Toast.makeText(Register.this, "Registered Successfully.", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(Register.this, Login.class);
+                startActivity(intent);
+                finish();
+
             }
         });
     }

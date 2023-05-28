@@ -23,6 +23,9 @@ public class TODOViewModel extends AndroidViewModel {
     public void delete(TODO todo){
         todoRepository.deleteData(todo);
     }
+    public void deleteAllTodo(){
+        todoRepository.deleteAllData();
+    }
     public void update(TODO todo){
         todoRepository.updateData(todo);
     }

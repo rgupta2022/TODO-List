@@ -7,7 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-@Database(entities = TODO.class,version = 5)
+@Database(entities = TODO.class,version = 6)
 @TypeConverters({DateConverter.class,TimeConverter.class})
 public abstract class TODODatabase extends RoomDatabase {
 

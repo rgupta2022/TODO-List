@@ -21,6 +21,8 @@ public interface TodoDao {
     @Delete
     public void delete(TODO todo);
 
+    @Query("delete from todoList")
+    public void deleteAllTodo();
     
 
     @Query("SELECT * FROM todoList")
